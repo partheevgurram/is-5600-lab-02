@@ -222,4 +222,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------------------------------------------------
   // Handle DELETE
-  // ----------
+  // ---------------------------------------------------
+  function handleUserDelete(users) {
+    const id = userIdInput ? userIdInput.value : '';
+    if (!id) return;
+
+    const index = users.findIndex((u) => u.id == id);
+    if (index === -1) return;
+
+    // remove from array
+    users.splice(index, 1);
+  }
+
+  // ---------------------------------------------------
+  // Helpers to clear UI
+  // ---------------------------------------------------
+  function clearForm() {
+    if (userIdInput) userIdInput.value = '';
+    if (firstNameInput) firstNameInput.value = '';
+    if (lastNameInput) lastNameInput.value = '';
+    if (emailInput) emailInput.value = '';
+  }
+
+  function clearPortfolio() {
+    if (portfolioEl) portfolioEl.innerHTML = '';
+  }
+});
